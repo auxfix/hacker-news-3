@@ -1,9 +1,8 @@
 
 "use client"
-import useSWR, { Fetcher }  from 'swr'
-import { HackerStory, User } from '@/types';
 import Link from 'next/link'
 import { useGetStory } from '@/common/hooks';
+import './styles.css';
 
 
 function getStoryId(context: any) {
@@ -16,13 +15,13 @@ export default async function Story(context: any) {
 
   const [storyWithUser, isLoading, isError] = useGetStory(storyId);
   
-  if(isLoading) return <div className="flex h-screen items-center justify-center font-extrabold">Loading</div>;
-  if(isError) return <div className="text-red-900 flex h-screen items-center justify-center font-extrabold">Error</div>;
+  if(isLoading) return <div className="story-loading">Loading</div>;
+  if(isError) return <div className="story-error">Error</div>;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="story-conainer">
         {!!storyWithUser && 
-          (<div className='border-2 rounded-xl border-gray-400 my-2 w-1/2 p-6 cursor-pointer' 
+          (<div className='story' 
             key={storyWithUser.id}>
             <h3>{'Title: ' + storyWithUser.title}</h3>
             <p>{'id: ' + storyWithUser.id}</p>
