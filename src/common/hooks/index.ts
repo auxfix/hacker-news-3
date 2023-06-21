@@ -1,0 +1,1 @@
+export {useGetStory} from './useGetStory';
