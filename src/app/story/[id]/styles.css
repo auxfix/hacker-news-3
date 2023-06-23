@@ -16,7 +16,19 @@
   }
 
   .story {
-    @apply border-2 rounded-xl border-gray-400 my-2 w-1/2 p-6 cursor-pointer
+    @apply border rounded-xl border-gray-400 my-2 w-1/2 p-6 cursor-pointer shadow-md;
+    background-color: var(--white-color);
+  }
+
+  .story__title {
+    @apply font-extrabold text-lg;
+  }
+
+
+
+  .story__img{
+    width: 10rem;
+    height: auto;
   }
 
 }
