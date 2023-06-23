@@ -26,11 +26,11 @@ export default async function Story(context: any) {
               <img className='story__img mr-3' src="https://placehold.co/600x600?text=Fancy+Image"></img>
               <div className='flex flex-col justify-between w-full'>
                 <p><span className='story__id'>{'id: '}</span>{storyWithUser.id}</p>
-                <h3 className='story__title'>{storyWithUser.title}</h3>
+                <a className='story__title' target="_blank" href={storyWithUser.url}>{storyWithUser.title}</a>
                 <p><span className=''>{'karma: '}</span>{storyWithUser?.karma}</p>
                 <div className = 'flex'>
                   <Link href="/" className='my-2 flex-1'>
-                    <span className='text-slate-950 rounded-xl  p-2 border-2 border-gray-400 inline-block'>Back</span>
+                    <span className='story__btn text-slate-950 rounded-xl  py-2 px-8 border-2 border-gray-400 inline-block'>Back</span>
                   </Link>
                   <p className='self-end'>{'time: ' + storyWithUser.time}</p>
               </div>
