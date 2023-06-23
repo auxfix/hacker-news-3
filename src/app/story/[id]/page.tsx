@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useGetStory } from '@/common/hooks';
 import './styles.css';
+import * as dayjs from 'dayjs'
 
 
 function getStoryId(context: any) {
@@ -17,6 +18,7 @@ export default async function Story(context: any) {
   
   if(isLoading) return <div className="story-loading">Loading</div>;
   if(isError) return <div className="story-error">Error</div>;
+  console.log(storyWithUser)
 
   return (
     <main className="story-conainer">
@@ -32,7 +34,7 @@ export default async function Story(context: any) {
                   <Link href="/" className='my-2 flex-1'>
                     <span className='story__btn text-slate-950 rounded-xl  py-2 px-8 border-2 border-gray-400 inline-block'>Back</span>
                   </Link>
-                  <p className='self-end'>{'time: ' + storyWithUser.time}</p>
+                  <p className='self-end'>{'time: ' + dayjs.unix(storyWithUser.time).format('DD/MM/YYYY')}</p>
               </div>
             </div>
 
